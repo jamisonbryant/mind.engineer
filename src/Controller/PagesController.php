@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Event\EventInterface;
+use Cake\Http\Exception\NotFoundException;
+
 /**
  * Pages Controller
  *
@@ -16,7 +20,7 @@ class PagesController extends AppController
      * @param \Cake\Event\EventInterface $event The event instance.
      * @return \Cake\Http\Response|null|void
      */
-    public function beforeFilter(\Cake\Event\EventInterface $event)
+    public function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
 
@@ -45,8 +49,8 @@ class PagesController extends AppController
                     'Pages.is_published' => true,
                 ])
                 ->firstOrFail();
-        } catch (\Cake\Datasource\Exception\RecordNotFoundException $e) {
-            throw new \Cake\Http\Exception\NotFoundException('Page not found');
+        } catch (RecordNotFoundException $e) {
+            throw new NotFoundException('Page not found');
         }
 
         $this->set(compact('page'));

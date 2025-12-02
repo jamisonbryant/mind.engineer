@@ -3,10 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
-use Cake\ORM\Query\SelectQuery;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\Validation\Validator;
 
 /**
  * EmailSubscriptions Model
@@ -24,7 +21,6 @@ use Cake\Validation\Validator;
  * @method iterable<\App\Model\Entity\EmailSubscription>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\EmailSubscription> saveManyOrFail(iterable $entities, array $options = [])
  * @method iterable<\App\Model\Entity\EmailSubscription>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\EmailSubscription>|false deleteMany(iterable $entities, array $options = [])
  * @method iterable<\App\Model\Entity\EmailSubscription>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\EmailSubscription> deleteManyOrFail(iterable $entities, array $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class EmailSubscriptionsTable extends Table

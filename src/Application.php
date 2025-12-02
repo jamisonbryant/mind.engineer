@@ -48,7 +48,9 @@ use Psr\Http\Message\ServerRequestInterface;
  *
  * @extends \Cake\Http\BaseApplication<\App\Application>
  */
-class Application extends BaseApplication implements AuthenticationServiceProviderInterface, AuthorizationServiceProviderInterface
+class Application extends BaseApplication implements
+    AuthenticationServiceProviderInterface,
+    AuthorizationServiceProviderInterface
 {
     /**
      * Load all the application configuration and bootstrap logic.
@@ -146,24 +148,24 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         $service = new AuthenticationService([
             'unauthenticatedRedirect' => Router::url('/admin/login'),
             'queryParam' => 'redirect',
-        ]);
-
-        // Load identifiers - check session and form fields
-        $service->loadIdentifier('Authentication.Password', [
-            'fields' => [
-                'username' => 'email',
-                'password' => 'password',
+            'identifiers' => [
+                'Authentication.Password' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password',
+                    ],
+                ],
             ],
-        ]);
-
-        // Load authenticators - session first, then form
-        $service->loadAuthenticator('Authentication.Session');
-        $service->loadAuthenticator('Authentication.Form', [
-            'fields' => [
-                'username' => 'email',
-                'password' => 'password',
+            'authenticators' => [
+                'Authentication.Session',
+                'Authentication.Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password',
+                    ],
+                    'loginUrl' => Router::url('/admin/login'),
+                ],
             ],
-            'loginUrl' => Router::url('/admin/login'),
         ]);
 
         return $service;
