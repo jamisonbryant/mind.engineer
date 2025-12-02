@@ -222,6 +222,33 @@ Fix code style:
 composer cs-fix
 ```
 
+### Running CI Checks
+
+Run the complete CI pipeline (code style, tests, static analysis):
+
+```bash
+# Run with current PHP version
+./bin/ci-check.sh
+
+# Run with all available PHP versions (8.1+)
+./bin/ci-check.sh --all-php
+
+# Run with specific PHP versions
+./bin/ci-check.sh 8.1 8.2 8.3
+```
+
+Individual checks:
+```bash
+# Code style only
+composer cs-check
+
+# Tests only
+vendor/bin/phpunit
+
+# Static analysis only
+vendor/bin/phpstan analyze
+```
+
 ---
 
 ## Project Structure
