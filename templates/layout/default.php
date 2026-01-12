@@ -1,55 +1,48 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * Public Layout - The Mind Engineer
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
+    <title><?= $this->fetch('title') ?> - The Mind Engineer</title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
-
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'site']) ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+    <header class="site-header">
+        <div class="container">
+            <nav class="site-nav">
+                <a href="<?= $this->Url->build('/') ?>" class="site-brand">The Mind Engineer</a>
+                <ul class="nav-links">
+                    <li><?= $this->Html->link('Home', '/') ?></li>
+                    <li><?= $this->Html->link('About', '/about') ?></li>
+                    <li><?= $this->Html->link('Manifesto', '/manifesto') ?></li>
+                    <li><?= $this->Html->link('Articles', '/articles') ?></li>
+                </ul>
+            </nav>
         </div>
-        <div class="top-nav-links">
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
-        </div>
-    </nav>
-    <main class="main">
+    </header>
+
+    <main class="site-main">
         <div class="container">
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <?= date('Y') ?> The Mind Engineer</p>
+        </div>
     </footer>
 </body>
 </html>

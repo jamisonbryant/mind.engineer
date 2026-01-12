@@ -1,0 +1,171 @@
+/* Admin Layout Styles */
+
+:root {
+    --admin-sidebar-width: 220px;
+    --admin-sidebar-bg: #1a2744;
+    --admin-sidebar-text: #faf8f5;
+    --admin-accent: #c9a227;
+}
+
+body.admin {
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    background: var(--admin-sidebar-bg);
+    color: var(--admin-sidebar-text);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.admin-brand {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-brand a {
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.admin-nav {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.admin-nav li {
+    margin: 0;
+}
+
+.admin-nav li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--admin-sidebar-text);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.admin-nav li a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.admin-nav-divider {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 1rem 0;
+}
+
+.admin-main {
+    margin-left: var(--admin-sidebar-width);
+    flex: 1;
+    padding: 2rem;
+}
+
+.admin-content {
+    max-width: 1200px;
+}
+
+/* Admin Tables */
+.admin-table {
+    width: 100%;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.admin-table th {
+    background: #f9f9f9;
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.admin-table .actions {
+    white-space: nowrap;
+}
+
+.admin-table .actions a {
+    margin-right: 0.5rem;
+}
+
+/* Admin Forms */
+.admin-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.admin-form .input {
+    margin-bottom: 1.5rem;
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="email"],
+.admin-form input[type="password"],
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.admin-form textarea {
+    min-height: 300px;
+    font-family: monospace;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+.badge-published {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-draft {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Login page */
+.users.form {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 4px;
+}
+
+.users.form h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
